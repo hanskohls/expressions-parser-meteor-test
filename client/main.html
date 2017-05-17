@@ -1,0 +1,15 @@
+<head>
+  <title>expressionParserTest</title>
+</head>
+
+<body>
+  <h1>Expressions Parser Tester</h1>
+  {{>tester}}
+</body>
+
+<template name="tester">
+  <p>Values are <i>a=1</i>, <i>b=5</i>, and <i>c=10</i>.</p>
+  <p>Feel free to edit your formula:</p>
+  <input type="text" value="{{formula}}">
+  <p>The result of {{expression}} is {{result}}.</p>
+</template>
