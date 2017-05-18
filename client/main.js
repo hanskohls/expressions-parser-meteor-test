@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+const mathjs = require("mathjs");
 const symbols = { "a": 1, "b": 5, "c": 10 }
 
 
@@ -30,6 +31,13 @@ Template.tester.helpers({
     const fn = mkFunc(formula);
     const value = fn(symbols);
     return value;
+  },
+  result_ms(){
+    let formula = Template.instance().formula.get();
+    let node = mathjs.parse(formula);
+    let code = node.compile();
+    let result = code.eval(symbols);
+    return result;
   }
 });
 
